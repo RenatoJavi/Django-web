@@ -15,7 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from Modulos.Academica_app.views import formularioContacto, contactar
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('formularioContacto/', formularioContacto),  # (url, vista)
+    # (url, vista)
+    # (url, vista)/', formularioContacto)
+    path('contactar/', contactar)
+    #path('mensajeEntregado/', mensajeEntregado),
 ]

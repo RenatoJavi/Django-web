@@ -15,7 +15,8 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Carrera',
             fields=[
-                ('codigo', models.CharField(max_length=3, primary_key=True, serialize=False)),
+                ('codigo', models.CharField(max_length=3,
+                                            primary_key=True, serialize=False)),
                 ('nombre', models.CharField(max_length=50)),
                 ('duracion', models.PositiveSmallIntegerField(default=5)),
             ],
@@ -23,7 +24,8 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Curso',
             fields=[
-                ('codigo', models.CharField(max_length=6, primary_key=True, serialize=False)),
+                ('codigo', models.CharField(max_length=6,
+                                            primary_key=True, serialize=False)),
                 ('nombre', models.CharField(max_length=30)),
                 ('creditos', models.PositiveSmallIntegerField()),
                 ('docente', models.CharField(max_length=100)),
@@ -32,23 +34,29 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Estudiante',
             fields=[
-                ('dni', models.CharField(max_length=8, primary_key=True, serialize=False)),
+                ('dni', models.CharField(max_length=8,
+                                         primary_key=True, serialize=False)),
                 ('apellidoPaterno', models.CharField(max_length=35)),
                 ('apellidoMaterno', models.CharField(max_length=35)),
                 ('nombres', models.CharField(max_length=35)),
                 ('fechaNacimiento', models.DateField()),
-                ('sexo', models.CharField(choices=[('F', 'Femenino'), ('M', 'Masculino')], default='F', max_length=1)),
+                ('sexo', models.CharField(choices=[
+                 ('F', 'Femenino'), ('M', 'Masculino')], default='F', max_length=1)),
                 ('vigencia', models.BooleanField(default=True)),
-                ('carrera', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='Academica_app.carrera')),
+                ('carrera', models.ForeignKey(
+                    on_delete=django.db.models.deletion.CASCADE, to='Academica_app.carrera')),
             ],
         ),
         migrations.CreateModel(
             name='Matricula',
             fields=[
-                ('idMatricula', models.AutoField(primary_key=True, serialize=False)),
+                ('idMatricula', models.AutoField(
+                    primary_key=True, serialize=False)),
                 ('fechaMatricula', models.DateTimeField(auto_now_add=True)),
-                ('curso', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='Academica_app.curso')),
-                ('estudiante', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='Academica_app.estudiante')),
+                ('curso', models.ForeignKey(
+                    on_delete=django.db.models.deletion.CASCADE, to='Academica_app.curso')),
+                ('estudiante', models.ForeignKey(
+                    on_delete=django.db.models.deletion.CASCADE, to='Academica_app.estudiante')),
             ],
         ),
     ]
