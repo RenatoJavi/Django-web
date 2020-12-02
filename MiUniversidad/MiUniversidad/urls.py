@@ -26,3 +26,5 @@ urlpatterns = [
     path('contactar/', contactar)
     #path('mensajeEntregado/', mensajeEntregado),
 ]
+
+# https://www.youtube.com/watch?v=10_PpcLRaHk
